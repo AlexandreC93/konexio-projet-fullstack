@@ -1,7 +1,16 @@
+let url = 'file:///C:/Users/ASF/Desktop/Konexio/konexio-projet-fullstack/front-end/index.html'
+
+
 let btn = document.querySelector('#btnShowData');
-let data = require('/Users/ASF/desktop/Konexio/konexio-projet-fullstack/api/data.json')
+
 btn.addEventListener('click',getAllCountries)
 
 function getAllCountries(){
-    data
+    fetch(url)
+
+    .then(function(){
+        
+    })
+    
 }
+

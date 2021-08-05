@@ -3,17 +3,32 @@
 const express = require('express')
 const app = express()
 const port = 8000
- const data = require("/Users/ASF/Desktop/Konexio/konexio-projet-fullstack/api/data.json")
- 
+const countries = require("./data.json")
+let cors = require('cors')
 
-let i = 0
-app.get('/all', (req, res) => {
-    
-    for (i=0;i <= data.length;i++){
-        result = data[i].name
+//  app.get('/all', (req, res) => {
+
+
+//     for (let i = 0 ; i <= poele.length ; i++ ) {
+
+//         casserolle.push(poele[i].name)
+//         // tableau.push(data[i].region)
+//         // tableau.push(data[i].capital)
+//     }
+
+//     res.send(casserolle)
+// })
+
+
+app.get("/all", (req, res) => {
+    let countriesNames = [];
+    for (let i = 0; i < countries.length; i++) {
+        countriesNames.push(countries[i].name);
+        countriesNames.push(countries[i].region)
+        countriesNames.push(countries[i].capital)
     }
-    res.send(result)
-})
+    res.send(countriesNames);
+});
 
 
 
@@ -23,12 +38,12 @@ app.listen(port, () => {
 
 /*
 
-CREER UNE FONCTION 
-RECUPERER LE JSON 
-UNE FOIS RECUPERER AJOUTER UL 
-CHAQUE LI EST UN PAYS 
-LI = INFO UTILE 
-AFTER LOAD APPELER LA FONCTION 
+CREER UNE FONCTION
+RECUPERER LE JSON
+UNE FOIS RECUPERER AJOUTER UL
+CHAQUE LI EST UN PAYS
+LI = INFO UTILE
+AFTER LOAD APPELER LA FONCTION
 
 */
 
